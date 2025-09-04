@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prajakta's Sweet Shop</title>
+  <meta name="description" content="A short portfolio website for a sweet shop – menu, photos, and contact." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🍬</text></svg>">
+  <style>
+    :root{
+      --bg:#fff8f2; --card:#ffffff; --ink:#2b2b2b; --muted:#6b6b6b;
+      --brand:#ff6b6b; --brand2:#ffd166; --accent:#7bd389;
+      --radius:16px; --shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin-inline:auto;padding:24px}
+
+    /* Header */
+    header{position:sticky;top:0;background:rgba(255,248,242,.8);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid #f2e6dd;z-index:20}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
+    .brand-badge{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:var(--shadow)}
+    .nav a.btn{padding:10px 16px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:38px 0}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero .card{padding:28px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#ffe7e7;font-weight:700;color:#bf4545;letter-spacing:.3px}
+    .hero h1{font-size:40px;line-height:1.15;margin:14px 0 10px}
+    .hero p{color:var(--muted);margin:0 0 16px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:2px solid transparent;font-weight:700;cursor:pointer}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#2b2b2b}
+    .btn.ghost{background:transparent;border-color:#e9d8c5}
+
+    .hero-visual{min-height:280px;position:relative;overflow:hidden}
+    .sprinkle{position:absolute;border-radius:12px;filter:drop-shadow(0 6px 12px rgba(0,0,0,.08))}
+    .s1{background:#ffe066;width:160px;height:110px;left:8%;top:12%;transform:rotate(-6deg)}
+    .s2{background:#ff8fab;width:130px;height:90px;right:10%;top:24%;transform:rotate(8deg)}
+    .s3{background:#caffbf;width:190px;height:120px;left:20%;bottom:10%;transform:rotate(-12deg)}
+    .s4{background:#bde0fe;width:140px;height:100px;right:18%;bottom:14%;transform:rotate(6deg)}
+    .donut{position:absolute;inset:auto;left:50%;top:50%;transform:translate(-50%,-50%);width:180px;height:180px;border-radius:50%;background: radial-gradient(circle at 35% 35%, #fff6, transparent 45%), #ffadad;border:10px solid #ffd6a5;box-shadow:inset 0 0 0 8px #fff8f2, 0 20px 40px rgba(0,0,0,.15)}
+    .donut:after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:#fff8f2}
+
+    /* Menu */
+    .section{padding:24px 0}
+    .section h2{font-size:28px;margin:0 0 12px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .tile{padding:16px;border-radius:14px;background:var(--card);box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
+    .price{margin-left:auto;font-weight:900}
+    .badge{font-size:12px;padding:4px 8px;border-radius:999px;background:#f1f5f9;color:#334155}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+    .ph{aspect-ratio:1/1;border-radius:12px;background:linear-gradient(135deg,#fff,#ffe8e8);box-shadow:var(--shadow);display:grid;place-items:center;font-size:28px}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    form{display:grid;gap:10px}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid #ead9c7;background:#fff}
+    textarea{min-height:100px;resize:vertical}
+    .small{color:var(--muted);font-size:14px}
+
+    footer{margin-top:30px;padding:20px;background:#fff;border-top:1px solid #f2e6dd;text-align:center}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width: 520px){
+      .grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .hero h1{font-size:32px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="brand-badge">🍬</div>
+        Prajakta's Sweet Shop
+      </div>
+      <nav class="links">
+        <a class="btn" href="#menu">Menu</a>
+        <a class="btn" href="#gallery">Gallery</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <span class="tag">Fresh • Handmade • Daily</span>
+        <h1>Traditional Indian Sweets with a Modern Touch</h1>
+        <p>From melt‑in‑your‑mouth <strong>Gulab Jamun</strong> to festive <strong>Kaju Katli</strong>, we craft happiness in every bite. Bulk orders & party trays available.</p>
+        <div class="cta">
+          <a href="#menu" class="btn primary">🍮 Explore Menu</a>
+          <a href="https://wa.me/919999999999" class="btn ghost" target="_blank" rel="noreferrer">💬 WhatsApp Order</a>
+          <a href="tel:+919999999999" class="btn ghost">📞 Call Now</a>
+        </div>
+      </div>
+      <div class="card hero-visual" aria-hidden="true">
+        <div class="sprinkle s1"></div>
+        <div class="sprinkle s2"></div>
+        <div class="sprinkle s3"></div>
+        <div class="sprinkle s4"></div>
+        <div class="donut" title="Sweet vibes"></div>
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <h2>Popular Menu</h2>
+      <div class="grid">
+        <div class="tile"><span>🟠 Gulab Jamun (4 pcs)</span> <span class="badge">Best Seller</span> <span class="price">₹80</span></div>
+        <div class="tile"><span>🥜 Kaju Katli (200g)</span> <span class="badge">Festive</span> <span class="price">₹220</span></div>
+        <div class="tile"><span>🟡 Rasgulla (6 pcs)</span> <span class="price">₹120</span></div>
+        <div class="tile"><span>🧡 Motichoor Ladoo (4 pcs)</span> <span class="price">₹140</span></div>
+        <div class="tile"><span>🤎 Mysore Pak (200g)</span> <span class="price">₹150</span></div>
+        <div class="tile"><span>🍫 Chocolate Barfi (200g)</span> <span class="price">₹160</span></div>
+      </div>
+      <p class="small">Custom boxes and corporate gifting available. Prices are indicative; call/WhatsApp for today’s specials.</p>
+    </section>
+
+    <section id="gallery" class="section">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <div class="ph" title="Kaju Katli">💎</div>
+        <div class="ph" title="Gulab Jamun">🍮</div>
+        <div class="ph" title="Motichoor Ladoo">🧡</div>
+        <div class="ph" title="Rasgulla">🟡</div>
+        <div class="ph" title="Mysore Pak">🤎</div>
+        <div class="ph" title="Chocolate Barfi">🍫</div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="contact">
+        <div class="card" style="padding:16px">
+          <h3 style="margin:0 0 8px">Visit Us</h3>
+          <p class="small" style="margin:0 0 10px">Prajakta's Sweet Shop, MG Road, Pune, Maharashtra</p>
+          <p style="margin:0 0 6px">Open: 10:00 AM – 9:30 PM (All days)</p>
+          <p style="margin:0 0 12px">Phone: <a href="tel:+919999999999">+91 99999 99999</a></p>
+          <a class="btn" style="display:inline-block;background:#222;color:#fff" target="_blank" rel="noreferrer" href="https://maps.google.com/?q=Prajakta%27s%20Sweet%20Shop%20Pune">📍 Get Directions</a>
+        </div>
+        <form class="card" onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you soon.');" style="padding:16px">
+          <label>
+            <span class="small">Name</span>
+            <input required placeholder="Your name" />
+          </label>
+          <label>
+            <span class="small">Phone / Email</span>
+            <input required placeholder="Your contact" />
+          </label>
+          <label>
+            <span class="small">Message</span>
+            <textarea placeholder="Order details or enquiry"></textarea>
+          </label>
+          <button class="btn primary" type="submit">Send Enquiry ✉️</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Prajakta's Sweet Shop • Made with ❤️
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
