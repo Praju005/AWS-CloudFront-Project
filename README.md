@@ -75,14 +75,6 @@ Use CloudFront URL → https://dXXXXXXXX.cloudfront.net
 
 Configure Route53 + SSL certificate via ACM
 
-📂 Project Structure
-bash
-Copy code
-sweet05/
-│── sweet_shop_portfolio.html   # Website file
-│── README.md                   # Documentation
-📸 Screenshots
-Homepage
 
 🎯 Learnings from this Project
 Hosting static websites securely on AWS S3
