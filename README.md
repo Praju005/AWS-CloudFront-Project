@@ -24,72 +24,64 @@ This project highlights **real-world AWS skills** in static website hosting, CDN
 | (Private Hosting) |
 | + OAI/OAC Access  |
 +-------------------+
-✨ The bucket is private – only CloudFront can fetch objects via Origin Access Identity (OAI)/Origin Access Control (OAC), ensuring security.
 
-🚀 Features
-🖼️ Attractive Portfolio – Hero, Menu, Gallery, and Contact sections
+✨ The bucket is **private** – only CloudFront can fetch objects via **Origin Access Identity (OAI)** or **Origin Access Control (OAC)**, ensuring secure access.  
 
-📦 Hosted on AWS S3 – Reliable static website hosting
+---
 
-🌍 CloudFront Integration – Global content delivery + HTTPS
+## 🚀 Features  
 
-🔒 Secure Setup – No public bucket policy, OAI/OAC used
+- 🖼️ **Attractive Portfolio** – Hero, Menu, Gallery, and Contact sections  
+- 📦 **Hosted on AWS S3** – Reliable static website hosting  
+- 🌍 **CloudFront Integration** – Global content delivery + HTTPS  
+- 🔒 **Secure Setup** – No public bucket policy, OAI/OAC used  
+- 🌐 **Scalable** – Supports custom domains via **Route53 + ACM**  
 
-🌐 Scalable – Can be mapped with a custom domain via Route53
+---
 
-🛠️ Tech Stack
-Frontend: HTML, CSS
+## 🛠️ Tech Stack  
 
-Hosting: Amazon S3 (Static Website Hosting)
+- **Frontend**: HTML, CSS  
+- **Hosting**: Amazon S3 (Static Website Hosting)  
+- **CDN & HTTPS**: AWS CloudFront with OAI/OAC  
+- **Domain Management (Optional)**: Route53  
 
-CDN & HTTPS: AWS CloudFront with OAI/OAC
+---
 
-Domain Management (Optional): Route53
+## 📝 Deployment Steps  
 
-📝 Deployment Steps (AWS)
-Create S3 Bucket
+### 1️⃣ Create S3 Bucket  
+- Name: `sweet05`  
+- Keep it **private**  
 
-Name: sweet05
+### 2️⃣ Upload Files  
+- Upload `sweet_shop_portfolio.html`  
 
-Keep it private
+### 3️⃣ Setup CloudFront  
+- Origin: S3 bucket  
+- Restrict Bucket Access ✅ Yes  
+- Use **OAI/OAC** for security  
+- Redirect **HTTP → HTTPS**  
 
-Upload Files
+### 4️⃣ Access Website  
+- CloudFront URL → `https://dXXXXXXXX.cloudfront.net`  
 
-Upload sweet_shop_portfolio.html
+### 5️⃣ (Optional) Add Custom Domain  
+- Configure with **Route53 + SSL Certificate (ACM)**  
 
-Setup CloudFront
+---
 
-Origin: S3 bucket
+## 🎯 Learnings from this Project  
 
-Restrict Bucket Access: ✅ Yes
+✔️ Hosting static websites securely on **AWS S3**  
+✔️ Configuring **CloudFront distributions** with OAI/OAC  
+✔️ Enabling **HTTPS + caching** for performance  
+✔️ Mapping **custom domains** with Route53  
 
-Use OAI/OAC for security
+---
 
-Redirect HTTP → HTTPS
+## 👨‍💻 Author  
 
-Access Website
-
-Use CloudFront URL → https://dXXXXXXXX.cloudfront.net
-
-(Optional) Add Custom Domain
-
-Configure Route53 + SSL certificate via ACM
-
-
-🎯 Learnings from this Project
-Hosting static websites securely on AWS S3
-
-Configuring CloudFront distributions with OAI/OAC
-
-Enabling HTTPS and caching for better performance
-
-Mapping custom domains with Route53
-----------------
-👨‍💻 Author
-Prajakta Pandaram
-
-
-
-
-
+**Prajakta Pandaram**  
+📌 *AWS | Cloud Projects  
 
